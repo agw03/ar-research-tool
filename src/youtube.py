@@ -20,7 +20,7 @@ def get_channel_stats(artist_name):
 
 def get_subscriber_count(channel_id):
     request = youtube.channels().list(
-        part="statistics, snippet",
+        part="statistics, topicDetails",
         id=channel_id
     )
     response = request.execute()

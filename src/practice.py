@@ -30,10 +30,5 @@ def filter_emerging(artists):
      
      return emerge
 
-artist1 = get_artist_info("Arlo Parks", 105000, 44528797)
-artist2 = get_artist_info("FKJ", 850000, 20000000)
-artist3 = get_artist_info("Sampha", 200000, 15000000)
-artists = [artist1, artist2, artist3]
-
 emerging_artists = filter_emerging(artists)
 print_report(emerging_artists)
