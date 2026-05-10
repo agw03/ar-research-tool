@@ -25,14 +25,3 @@ def get_subscriber_count(channel_id):
     )
     response = request.execute()
     return response
-
-channel_id = get_channel_stats("Arlo Parks")["items"][0]["id"]["channelId"]
-print(f"Channel ID: {channel_id}")
-print(get_subscriber_count(channel_id))
-
-print(get_channel_stats("Arlo Parks"))
-
-stats = get_subscriber_count(channel_id)["items"][0]["statistics"]
-print(f"Subscribers: {stats['subscriberCount']}")
-print(f"Total Views: {stats['viewCount']}")
-print(f"Videos: {stats['videoCount']}")

@@ -1,32 +1,22 @@
-# def calculate_growth(current, previous):
-#     if not isinstance(current, (int, float)):
-#         return None
-#     elif not isinstance(previous, (int, float)):
-#         return None
-#     elif previous == 0:
-#         return None
-#     else:
-#         growth = (current - previous) / previous*100
-#         return growth
-
-# artists = [
-#     {"name": "Arlo Parks", "current": 1200000, "previous": 1000000},
-#     {"name": "FKJ", "current": 850000, "previous": 800000},
-#     {"name": "Sampha", "current": 850000, "previous": 500000},
-# ]
-
-# for artist in artists:
-#     result = calculate_growth(artist.get("current"), artist.get("previous"))
-#     if result is None:
-#         print(f"{artist.get('name')}: Insufficient data")
-#     else:
-#         print(f"{artist.get('name')}: {result:.1f}% growth")
+from src.youtube import get_channel_stats, get_subscriber_count
+from src.analyse import get_artist_info, filter_emerging, is_emerging
+from src.report import print_report
 
 try:
     with open("data/artists.txt", "r") as f:
-        artists = f.read().splitlines()
+        artist_names = f.read().splitlines()
 except FileNotFoundError as e:
     print(f"Error: {e}")
-    artists = []
+    artist_names = []
 
-print(artists)
+artists = []
+
+for artist_name in artist_names:
+    channel_stats = get_channel_stats(artist_name)
+    channel_id = channel_stats["items"][0]["id"]["channelId"]
+    stats = get_subscriber_count(channel_id)["items"][0]["statistics"]
+    artist_info = get_artist_info(artist_name, int(stats["subscriberCount"]), int(stats["viewCount"]))
+    artists.append(artist_info)
+
+emerging = filter_emerging(artists)
+print_report(emerging)
