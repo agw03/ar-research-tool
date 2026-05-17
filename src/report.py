@@ -14,3 +14,8 @@ def print_report(artists):
         views = artist["views"]
         emerging = is_emerging(artist)
         print(f"Name: {name} | Subscribers: {subs} | Views: {views} | Emerging: {emerging}")
+
+def print_growth_report(growth_df):
+    print("\n--- Growth Report ---")
+    for index, row in growth_df.iterrows():
+        print(f"{row['name']}: {row['subscriber_growth']:+.1f}%")

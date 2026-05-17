@@ -1,6 +1,6 @@
 from src.youtube import get_channel_stats, get_subscriber_count
 from src.analyse import get_artist_info, filter_emerging, is_emerging, compare_snapshots, calculate_growth
-from src.report import print_report, save_snapshot
+from src.report import print_report, save_snapshot, print_growth_report
 import pandas as pd
 import os
 
@@ -42,6 +42,6 @@ if len(snapshot) >= 2:
     current_df = pd.read_csv(f"output/{snapshot[-1]}")
     previous_df = pd.read_csv(f"output/{snapshot[-2]}")
     growth_df = compare_snapshots(current_df, previous_df)
-    print(growth_df)
+    print_growth_report(growth_df)
 else:
     print("No previous snapshot to compare.")
