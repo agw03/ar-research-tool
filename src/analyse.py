@@ -9,10 +9,7 @@ def get_artist_info(name, subscribers, views):
     return result
 
 def is_emerging(artist):
-    if artist["subscribers"] >= 500000:
-        return False
-    else:
-        return True
+    return artist["subscribers"] < 500000
 
 def filter_emerging(artists):
     emerge = []
