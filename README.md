@@ -33,7 +33,7 @@ source venv/bin/activate
 pip3 install -r requirements.txt
 ```
 ### Step 4: Add API credentials
-    Create a .env file in the root folder using:
+Create a .env file in the root folder using:
 ```
 YOUTUBE_API_KEY=your_key_here
 ```
