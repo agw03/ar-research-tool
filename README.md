@@ -61,4 +61,3 @@ Hotel Mira: +45.0%
 Chase Petra: +28.6%
 All Time Low: +15.5%
 ```
-```
