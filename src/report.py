@@ -19,3 +19,7 @@ def print_growth_report(growth_df):
     print("\n--- Growth Report ---")
     for index, row in growth_df.iterrows():
         print(f"{row['name']}: {row['subscriber_growth']:+.1f}%")
+
+def save_growth_snapshot(growth_df):
+    timestamp = datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+    growth_df.to_csv(f"output/growth_{timestamp}.csv", index=False)
