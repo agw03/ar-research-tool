@@ -11,7 +11,6 @@ From my experience working in A&R and the broader music industry, I found myself
 This program will locate the YouTube channels of artists based on the names given in the artists.txt file. It will retrieve their channel name, subscriber count and total view count. If the channel has over 500k subscribers, the artist gets filtered out as "non-emerging", and is not included in the final report. It then puts the name, views and subscriber count into a readable .csv file. When run additional times with the same artists.txt file, it will also generate a growth percentage based on their current numbers compared to the last snapshot saved. This growth metric will be reported in the "current" .csv.
 
 ## Tech Stack
-## Tech Stack
 - **Python:** the language used to write all files in this program
 - **YouTube Data API v3:** used to retrieve the artists' channel data for analysis
 - **pandas:** used for analysis, calculations and comparisons of channels and artists
